@@ -1,0 +1,21 @@
+﻿<Application x:Class="App46.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:App46"
+             xmlns:Interactivity="using:Microsoft.Xaml.Interactivity"
+             RequestedTheme="Light">
+    <Application.Resources>
+        <DataTemplate x:Key="PersonDataTemplate">
+            <StackPanel>
+                <TextBlock>
+                    <Interactivity:Interaction.Behaviors>
+                        <local:AncestorBindingBehavior AncestorType="ItemsControl"
+                                                       TargetPropertyName="Text"
+                                                       Binding="{Binding DataContext.Name}" />
+                    </Interactivity:Interaction.Behaviors>
+                </TextBlock>
+                <TextBlock Text="{Binding Name}" />
+            </StackPanel>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
